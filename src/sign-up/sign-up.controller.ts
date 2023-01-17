@@ -8,8 +8,14 @@ import {
   Delete,
 } from '@nestjs/common';
 import { SignUpService } from './sign-up.service';
-import { CreateSignUpDto, CreateLoginDto } from './dto/create-sign-up.dto';
+import {
+  CreateSignUpDto,
+  CreateLoginDto,
+  CreateOtpDto,
+  Data,
+} from './dto/create-sign-up.dto';
 import { UpdateSignUpDto } from './dto/update-sign-up.dto';
+import { Put } from '@nestjs/common/decorators';
 
 @Controller('sign-up')
 export class SignUpController {
@@ -23,6 +29,16 @@ export class SignUpController {
   @Post('login')
   Login(@Body() CreateLoginDto: CreateLoginDto) {
     return this.signUpService.Login(CreateLoginDto);
+  }
+
+  @Post('otp-send')
+  Otp(@Body() createOtpDto: CreateOtpDto) {
+    return this.signUpService.Otp(createOtpDto);
+  }
+
+  @Put('reset-password/:id')
+  resetPass(@Param() id: string, @Body() Data: Data) {
+    return this.signUpService.resetPass(id, Data);
   }
 
   @Get()

@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
 import { SignUpModule } from './sign-up/sign-up.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { QuizModule } from './quiz/quiz.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService],
     }),
     SignUpModule,
+    QuizModule,
   ],
   controllers: [AppController],
   providers: [AppService],

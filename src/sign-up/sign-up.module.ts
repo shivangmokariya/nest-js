@@ -1,5 +1,5 @@
 import { signUp, signUpSchema } from './schema/sign-up.schema';
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { SignUpService } from './sign-up.service';
 import { SignUpController } from './sign-up.controller';
 import { MongooseModule } from '@nestjs/mongoose';
