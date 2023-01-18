@@ -25,9 +25,9 @@ export class QuizController {
     return this.quizService.findByTopic(findByTopic, id);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.quizService.findOne(+id);
+  @Get('topic-quiz/:id')
+  getByTopic(@Param('id') id: string) {
+    return this.quizService.getByTopic(id);
   }
 
   @Patch('score/:id')
